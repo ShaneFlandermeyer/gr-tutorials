@@ -1,0 +1,7 @@
+# Module has no attribute
+1) Uninstall the module by running sudo make uninstall in build/
+2) Remove the module file from /usr/local/lib/python3/dist-packages
+   -> May be under a different python version
+3) Run ls -alt /usr/local/lib/libgnuradio-${MODULE_NAME}.so*
+   -> If entries exist, run sudo rm /usr/local/.lib/libgnuradio-${MODULE_NAME}.so*
+4) Reinstall the module in build/
