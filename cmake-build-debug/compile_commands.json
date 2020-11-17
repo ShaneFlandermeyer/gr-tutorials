@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/shane/src/gr-tutorials/cmake-build-debug/lib",
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DGR_CTRLPORT -Dgnuradio_tutorials_EXPORTS -I/home/shane/src/gr-tutorials/lib/../include  -g -fPIC   -fvisibility=hidden -std=gnu++11 -o CMakeFiles/gnuradio-tutorials.dir/adder_impl.cc.o -c /home/shane/src/gr-tutorials/lib/adder_impl.cc",
+  "file": "/home/shane/src/gr-tutorials/lib/adder_impl.cc"
+},
+{
+  "directory": "/home/shane/src/gr-tutorials/cmake-build-debug/swig",
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK -DGR_CTRLPORT -Dtutorials_swig_EXPORTS -I/home/shane/src/gr-tutorials/cmake-build-debug/swig -I/home/shane/src/gr-tutorials/swig -I/usr/local/include/gnuradio/swig -I/home/shane/src/gr-tutorials/lib/../include -isystem /usr/include/python3.8  -g -fPIC   -fvisibility=hidden -std=gnu++11 -o CMakeFiles/tutorials_swig.dir/CMakeFiles/tutorials_swig.dir/tutorials_swigPYTHON_wrap.cxx.o -c /home/shane/src/gr-tutorials/cmake-build-debug/swig/CMakeFiles/tutorials_swig.dir/tutorials_swigPYTHON_wrap.cxx",
+  "file": "/home/shane/src/gr-tutorials/cmake-build-debug/swig/CMakeFiles/tutorials_swig.dir/tutorials_swigPYTHON_wrap.cxx"
+},
+{
+  "directory": "/home/shane/src/gr-tutorials/cmake-build-debug/swig",
+  "command": "/usr/bin/c++    -g   -fvisibility=hidden -std=gnu++11 -o CMakeFiles/_tutorials_swig_doc_tag.dir/_tutorials_swig_doc_tag.cpp.o -c /home/shane/src/gr-tutorials/cmake-build-debug/swig/_tutorials_swig_doc_tag.cpp",
+  "file": "/home/shane/src/gr-tutorials/cmake-build-debug/swig/_tutorials_swig_doc_tag.cpp"
+}
+]
