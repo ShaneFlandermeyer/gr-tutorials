@@ -9,9 +9,13 @@
 
 %{
 #include "tutorials/adder.h"
+#include "tutorials/test.h"
 %}
 
 %include "tutorials/adder.h"
 GR_SWIG_BLOCK_MAGIC2_TMPL(tutorials,adder_ii,adder<int>);
 GR_SWIG_BLOCK_MAGIC2_TMPL(tutorials,adder_ff,adder<float>);
 GR_SWIG_BLOCK_MAGIC2_TMPL(tutorials,adder_cc,adder<gr_complex>);
+
+%include "tutorials/test.h"
+GR_SWIG_BLOCK_MAGIC2(tutorials, test);

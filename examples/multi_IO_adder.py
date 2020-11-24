@@ -77,7 +77,7 @@ class multi_IO_adder(gr.top_block, Qt.QWidget):
         ##################################################
         # Blocks
         ##################################################
-        self.tutorials_adder_xx_1 = tutorials.adder_cc()
+        self.tutorials_adder_xx_2 = tutorials.adder_cc()
         self.qtgui_sink_x_0 = qtgui.sink_c(
             1024, #fftsize
             firdes.WIN_BLACKMAN_hARRIS, #wintype
@@ -104,10 +104,10 @@ class multi_IO_adder(gr.top_block, Qt.QWidget):
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.analog_sig_source_x_0, 0), (self.tutorials_adder_xx_1, 0))
-        self.connect((self.analog_sig_source_x_0_0, 0), (self.tutorials_adder_xx_1, 1))
+        self.connect((self.analog_sig_source_x_0, 0), (self.tutorials_adder_xx_2, 0))
+        self.connect((self.analog_sig_source_x_0_0, 0), (self.tutorials_adder_xx_2, 1))
         self.connect((self.blocks_throttle_0, 0), (self.qtgui_sink_x_0, 0))
-        self.connect((self.tutorials_adder_xx_1, 0), (self.blocks_throttle_0, 0))
+        self.connect((self.tutorials_adder_xx_2, 0), (self.blocks_throttle_0, 0))
 
 
     def closeEvent(self, event):

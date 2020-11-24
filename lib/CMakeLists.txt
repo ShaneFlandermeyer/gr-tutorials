@@ -22,10 +22,9 @@
 # Setup library
 ########################################################################
 include(GrPlatform) #define LIB_SUFFIX
-
 list(APPEND tutorials_sources
     adder_impl.cc
-)
+    test_impl.cc )
 
 set(tutorials_sources "${tutorials_sources}" PARENT_SCOPE)
 if(NOT tutorials_sources)

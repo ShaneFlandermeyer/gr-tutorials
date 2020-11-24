@@ -23,5 +23,6 @@
 ########################################################################
 install(FILES
     api.h
-    adder.h DESTINATION include/tutorials
+    adder.h
+    test.h DESTINATION include/tutorials
 )

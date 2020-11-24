@@ -302,7 +302,7 @@ blocks:
     coordinate: [512, 144.0]
     rotation: 0
     state: disabled
-- name: tutorials_adder_xx_1
+- name: tutorials_adder_xx_2
   id: tutorials_adder_xx
   parameters:
     affinity: ''
@@ -315,19 +315,19 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [480, 424.0]
+    coordinate: [472, 448.0]
     rotation: 0
-    state: enabled
+    state: true
 
 connections:
 - [analog_const_source_x_0, '0', tutorials_adder_xx_0, '0']
 - [analog_const_source_x_0_0, '0', tutorials_adder_xx_0, '1']
-- [analog_sig_source_x_0, '0', tutorials_adder_xx_1, '0']
-- [analog_sig_source_x_0_0, '0', tutorials_adder_xx_1, '1']
+- [analog_sig_source_x_0, '0', tutorials_adder_xx_2, '0']
+- [analog_sig_source_x_0_0, '0', tutorials_adder_xx_2, '1']
 - [blocks_throttle_0, '0', qtgui_sink_x_0, '0']
 - [blocks_throttle_0_0, '0', qtgui_time_sink_x_0, '0']
 - [tutorials_adder_xx_0, '0', blocks_throttle_0_0, '0']
-- [tutorials_adder_xx_1, '0', blocks_throttle_0, '0']
+- [tutorials_adder_xx_2, '0', blocks_throttle_0, '0']
 
 metadata:
   file_format: 1

@@ -1,7 +1,58 @@
-# Module has no attribute
-1) Uninstall the module by running sudo make uninstall in build/
-2) Remove the module file from /usr/local/lib/python3/dist-packages
-   -> May be under a different python version
-3) Run ls -alt /usr/local/lib/libgnuradio-${MODULE_NAME}.so*
-   -> If entries exist, run sudo rm /usr/local/.lib/libgnuradio-${MODULE_NAME}.so*
-4) Reinstall the module in build/
+# ----------------------------------------------------------------------------------------------
+# PRELIMINARY STEP (If using C++ blocks)
+# ----------------------------------------------------------------------------------------------
+Before attempting to debug a module, go to python/__init__.py and remove the try-catch statement (leaving only the swig import). For example, change it from
+
+try:
+    # this might fail if the module is python-only
+    from .dragon_swig import *
+except ImportError:
+    pass
+    
+to 
+
+# try:
+    # this might fail if the module is python-only
+from .dragon_swig import *
+# except ImportError:
+#     pass
+
+this will give you more descriptive errors inside GRC.
+
+# ----------------------------------------------------------------------------------------------
+# ImportError (undefined symbol)
+# ----------------------------------------------------------------------------------------------
+If you attempt to use other GNU Radio libraries in your OOT module (for example, the FIR filter library), you may get the following error: 
+
+ImportError: /usr/local/lib/libgnuradio-dragon.so.1.0.0git: undefined symbol:        _ZN2gr6filter6kernel10fir_filterIfffEC1EiRKSt6vectorIfSaIfEE
+
+This occurs because you're trying to use the libraries without linking to them. To fix it, you need to make modifications to two cmake files. First, add the library names to the find_packages command in your module-level cmake file
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+gr-dragon/CMakeLists.txt
+~~~~~~~~~~~~~~~~~~~~~~~~
+########################################################################
+# Install directories
+########################################################################
+find_package(Gnuradio "3.8" REQUIRED)
+
+to 
+
+########################################################################
+# Install directories
+########################################################################
+find_package(Gnuradio "3.8" REQUIRED COMPONENTS filter fft blocks)
+
+Here I'm trying to use the filter, fft, and blocks libraries. We now need to tell the compiler to link to them in the lib directory.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gr-dragon/lib/CMakeLists.txt
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+target_link_libraries(gnuradio-dragon gnuradio::gnuradio-runtime)
+
+to
+
+target_link_libraries(gnuradio-dragon gnuradio::gnuradio-runtime
+        gnuradio::gnuradio-filter gnuradio::gnuradio-fft
+        gnuradio::gnuradio-blocks)
+
